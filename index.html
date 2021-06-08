@@ -5,6 +5,19 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	<script type="text/javascript">
+		function sendMessage()
+		{
+			var name = document.getElementById("name").value.replace(/ /g, "%20");
+			var contact = document.getElementById("email").value.replace(/ /g, "%20");
+			var sub = document.getElementById("subject").value.replace(/ /g, "%20");
+			var message = document.getElementById("message").value.replace(/ /g, "%20").replace(/\n/g, "%0A");
+			var msg = message+"%0A%0AFrom: "+name+"%0A%0AContact: "+contact+"%0A%0A";
+			var url = 'mailto:gaganp2002@gmail.com?subject=' + sub + '&body=' + msg;
+			location.replace(url);
+		}
+	</script>
+
 	<head>
 		<title>Miniport by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -16,10 +29,11 @@
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="container">
-					<li><a href="#top">Top</a></li>
-					<li><a href="#work">Work</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
+					<!--<li><a href="#top">Top</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<li><a href="#work">Work</a></li> -->
+					<li><a href="#portfolio">My Portfolio</a></li>
+					
 				</ul>
 			</nav>
 
@@ -34,7 +48,7 @@
 							<header>
 								<h1>Hi. I'm <strong>Gagan Pradhan</strong>.</h1>
 							</header>
-                                                        <p> Electronics,Communication and Information Engineering Undergraduate at Himalaya College of Engineering </p>
+                                                        <p> Electronics, Communication and Information Engineering Undergraduate at Himalaya College of Engineering </p>
 							<p>And Welcome to <strong>My Personal Blog</strong>. </p>
 							<a href="#work" class="button large scrolly">About Me</a>
 						</div>
@@ -61,13 +75,13 @@ I am doing my Bachelors in Electronic,Communication and Information Engineering(
 					</header>
 					<div class="row">
 						<div class="col-12">
-							<form method="post" action="mailto:gaganp2002@gmail.com?subject=subject&message=message">
+							<form method="post" >
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="name" id="name" placeholder="Name" />
 									</div>
 									<div class="col-6 col-12-small">
-										<input type="text" name="email" id="email" placeholder="Email" />
+										<input type="text" name="email" id="email" placeholder="Contact" />
 									</div>
 									<div class="col-12">
 										<input type="text" name="subject" id="subject" placeholder="Subject" />
@@ -75,9 +89,10 @@ I am doing my Bachelors in Electronic,Communication and Information Engineering(
 									<div class="col-12">
 										<textarea name="message" id="message" placeholder="Message"></textarea>
 									</div>
+
 									<div class="col-12">
 										<ul class="actions">
-											<li><input type="Submit" value="Send Message"/></li>
+											<li><input type="button" onclick="sendMessage()" value="Send Message"/></li>
                                                                                         <li><input type="reset" value="Clear Form" class="alt" /></li>
 										</ul>
 									</div>
